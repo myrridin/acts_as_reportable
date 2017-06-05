@@ -162,7 +162,7 @@ module Ruport
           options[:include] = get_include_for_find(includes)
         end
 
-        data = where(options[:conditions]).order(options[:order]).includes(options[:include]).to_a
+        data = where(options[:conditions]).order(options[:order]).includes(options[:include]).references(options[:include]).to_a
         data.compact!
         columns = []
         data = data.map do |r|
